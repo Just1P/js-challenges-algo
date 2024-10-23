@@ -8,29 +8,32 @@
 // Utilise le spread operator pour copier chaque produit et appliquer une réduction de 20 % sur certains produits (ceux dont le nom contient le mot "Promo").
 // Affiche la liste originale et la liste mise à jour.
 
-
 const products = [
-    { name: 'Produit A', price: 100 },
-    { name: 'Produit Promo B', price: 150 },
-    { name: 'Produit C', price: 200 },
-    { name: 'Produit Promo D', price: 250 }
-  ];
-  
+  { name: "Produit A", price: 100 },
+  { name: "Produit Promo B", price: 150 },
+  { name: "Produit C", price: 200 },
+  { name: "Produit Promo D", price: 250 },
+];
+
+const updatedProducts = [...products];
+const { name, price } = updatedProducts;
+
+if ({ name }.includes("Promo")) {
+  console.log(updatedProducts);
+}
 // Appliquer une réduction de 20 % sur les produits en promotion
 
-  
-console.log('Produits originaux :', products); // Liste originale
-console.log('Produits mis à jour :', updatedProducts); // Liste avec réduction
-  
+// console.log("Produits originaux :", products); // Liste originale
+// console.log("Produits mis à jour :", updatedProducts); // Liste avec réduction
 
 // Résultat attendu :
 // Produits originaux : [
-//     { name: 'Produit A', price: 100 }, 
+//     { name: 'Produit A', price: 100 },
 //     { name: 'Produit Promo B', price: 150 },
 //     { name: 'Produit C', price: 200 },
 //     { name: 'Produit Promo D', price: 250 }
 //   ]
-  
+
 //   Produits mis à jour : [
 //     { name: 'Produit A', price: 100 },
 //     { name: 'Produit Promo B', price: 120 },

@@ -6,15 +6,19 @@
 // Utilise le spread operator pour fusionner les deux tableaux en un seul.
 // Trie les scores dans l'ordre croissant et affiche le tableau trié.
 
-
 const class1Scores = [89, 76, 91, 66, 88];
 const class2Scores = [72, 95, 84, 80, 78];
 
 // Fusionner les tableaux avec le spread operator
 
+const classScores = [...class1Scores, ...class2Scores];
+
+console.log(classScores);
+
 // Trier les scores dans l'ordre croissant
 
+const sortedScores = classScores.sort((a, b) => a - b);
 
-console.log('Scores triés :', sortedScores); // Affiche les scores triés
+console.log("Scores triés :", sortedScores); // Affiche les scores triés
 
 // Scores triés : [66, 72, 76, 78, 80, 84, 88, 89, 91, 95]
