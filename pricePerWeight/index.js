@@ -8,20 +8,31 @@
 // Une fois les prix au kilo calculés, trie la liste des produits par ordre croissant de prix au kilo.
 // Affiche la liste des produits avec le nom, le prix total, le poids et le prix au kilo.
 
-
 const products = [
-    { name: 'Riz', price: 15, weight: 5 },
-    { name: 'Farine', price: 8, weight: 2 },
-    { name: 'Pommes', price: 10, weight: 4 },
-    { name: 'Bananes', price: 6, weight: 1.5 }
+  { name: "Riz", price: 15, weight: 5 },
+  { name: "Farine", price: 8, weight: 2 },
+  { name: "Pommes", price: 10, weight: 4 },
+  { name: "Bananes", price: 6, weight: 1.5 },
 ];
-  
+
 // Ajouter le prix par kilo à chaque produit
 
+const updatedProducts = products.map((product) => {
+  const pricePerKg = product.price / product.weight;
+  return { ...product, pricePerKg: pricePerKg.toFixed(2) }; // On ajoute pricePerKg avec deux décimales
+});
+
 // Trier les produits par prix au kilo
-  
+
+updatedProducts.sort((a, b) => a.pricePerKg - b.pricePerKg);
+
 // Afficher les produits avec leur prix par kilo
 
+updatedProducts.forEach((product) => {
+  console.log(
+    `${product.name}: Prix total = ${product.price} €, Poids = ${product.weight} kg, Prix par kilo = ${product.pricePerKg} €/kg`
+  );
+});
 
 // Résultat attendu :
 // Riz: Prix total = 15 €, Poids = 5 kg, Prix par kilo = 3.00 €/kg
