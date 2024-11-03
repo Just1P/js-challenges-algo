@@ -7,6 +7,7 @@
 // Crée un tableau products qui contient des objets représentant chaque produit, avec les propriétés name et price.
 // Utilise le spread operator pour copier chaque produit et appliquer une réduction de 20 % sur certains produits (ceux dont le nom contient le mot "Promo").
 // Affiche la liste originale et la liste mise à jour.
+// Appliquer une réduction de 20 % sur les produits en promotion
 
 const products = [
   { name: "Produit A", price: 100 },
@@ -15,16 +16,18 @@ const products = [
   { name: "Produit Promo D", price: 250 },
 ];
 
-const updatedProducts = [...products];
-const { name, price } = updatedProducts;
-
-if ({ name }.includes("Promo")) {
-  console.log(updatedProducts);
-}
-// Appliquer une réduction de 20 % sur les produits en promotion
+const updatedProducts = products.map((product) => {
+  if (product.name.includes("Promo")) {
+    const updatedPrice = product.price * 0.8;
+    return { ...product, price: updatedPrice };
+  }
+});
 
 // console.log("Produits originaux :", products); // Liste originale
 // console.log("Produits mis à jour :", updatedProducts); // Liste avec réduction
+
+console.log("Produits originaux :", products); // Liste originale
+console.log("Produits mis à jour :", updatedProducts); // Liste avec réduction
 
 // Résultat attendu :
 // Produits originaux : [

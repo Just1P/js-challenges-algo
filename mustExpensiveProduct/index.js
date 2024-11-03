@@ -15,17 +15,15 @@ const products = [
   { name: "Produit D", price: 400 },
 ];
 
-const { name, price } = products;
-
-const max = products.reduce(function (accumulator, currentValue) {
-  return Math.max(accumulator, currentValue);
-});
-
-console.log(max);
 // Trouver le produit le plus cher avec reduce
-console.log(
-  `Le produit le plus cher est : ${products.name} au prix de ${products.price} €`
-);
+
+const mostExpensiveProduct = products.reduce((maxProduct, currentProduct) => {
+  return currentProduct.price > maxProduct.price ? currentProduct : maxProduct;
+});
 
 // Résultat attendu :
 // Le produit le plus cher est : Produit D au prix de 400 €
+
+console.log(
+  `Le produit le plus cher est : ${mostExpensiveProduct.name} au prix de ${mostExpensiveProduct.price} €`
+);
